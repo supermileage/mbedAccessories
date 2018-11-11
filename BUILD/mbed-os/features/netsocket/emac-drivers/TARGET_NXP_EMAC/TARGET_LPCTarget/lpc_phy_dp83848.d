@@ -1,0 +1,49 @@
+mbed-os/features/netsocket/emac-drivers/TARGET_NXP_EMAC/TARGET_LPCTarget/lpc_phy_dp83848.o: \
+ ../mbed-os/features/netsocket/emac-drivers/TARGET_NXP_EMAC/TARGET_LPCTarget/lpc_phy_dp83848.cpp \
+ .././mbed_config.h .././mbed-os/features/netsocket/nsapi_types.h \
+ ../mbed-os/features/netsocket/emac-drivers/TARGET_NXP_EMAC/TARGET_LPCTarget/lpc_emac_config.h \
+ ../mbed-os/features/netsocket/emac-drivers/TARGET_NXP_EMAC/TARGET_LPCTarget/lpc17_emac.h \
+ .././mbed-os/features/netsocket/EMAC.h .././mbed-os/platform/Callback.h \
+ .././mbed-os/platform/mbed_assert.h \
+ .././mbed-os/platform/mbed_preprocessor.h \
+ .././mbed-os/platform/mbed_toolchain.h \
+ .././mbed-os/features/netsocket/EMACMemoryManager.h \
+ .././mbed-os/features/netsocket/nsapi.h \
+ .././mbed-os/features/netsocket/nsapi_types.h \
+ .././mbed-os/features/netsocket/SocketAddress.h \
+ .././mbed-os/platform/mbed_toolchain.h \
+ .././mbed-os/features/netsocket/NetworkStack.h \
+ .././mbed-os/features/netsocket/NetworkInterface.h \
+ .././mbed-os/features/netsocket/DNS.h \
+ .././mbed-os/features/netsocket/EthInterface.h \
+ .././mbed-os/features/netsocket/WiFiInterface.h \
+ .././mbed-os/features/netsocket/WiFiAccessPoint.h \
+ .././mbed-os/features/netsocket/CellularBase.h \
+ .././mbed-os/features/netsocket/MeshInterface.h \
+ .././mbed-os/features/netsocket/Socket.h \
+ .././mbed-os/features/netsocket/UDPSocket.h \
+ .././mbed-os/features/netsocket/InternetSocket.h \
+ .././mbed-os/rtos/Mutex.h \
+ .././mbed-os/rtos/TARGET_CORTEX/rtx5/Include/cmsis_os2.h \
+ .././mbed-os/rtos/TARGET_CORTEX/mbed_rtos1_types.h \
+ .././mbed-os/rtos/TARGET_CORTEX/rtx4/cmsis_os.h \
+ .././mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Include/rtx_os.h \
+ .././mbed-os/rtos/TARGET_CORTEX/mbed_rtos_storage.h \
+ .././mbed-os/rtos/TARGET_CORTEX/mbed_rtx_conf.h \
+ .././mbed-os/targets/TARGET_NXP/mbed_rtx.h \
+ .././mbed-os/platform/NonCopyable.h .././mbed-os/platform/ScopedLock.h \
+ .././mbed-os/rtos/EventFlags.h \
+ .././mbed-os/features/netsocket/TCPSocket.h \
+ .././mbed-os/features/netsocket/TCPServer.h \
+ .././mbed-os/rtos/Semaphore.h \
+ ../mbed-os/features/netsocket/emac-drivers/TARGET_NXP_EMAC/TARGET_LPCTarget/lpc_phy.h \
+ ../mbed-os/features/netsocket/emac-drivers/TARGET_NXP_EMAC/TARGET_LPCTarget/lpc17xx_emac.h \
+ .././mbed-os/targets/TARGET_NXP/TARGET_LPC176X/device/cmsis.h \
+ .././mbed-os/targets/TARGET_NXP/TARGET_LPC176X/device/LPC17xx.h \
+ .././mbed-os/cmsis/TARGET_CORTEX_M/core_cm3.h \
+ .././mbed-os/cmsis/TARGET_CORTEX_M/cmsis_version.h \
+ .././mbed-os/cmsis/TARGET_CORTEX_M/cmsis_compiler.h \
+ .././mbed-os/cmsis/TARGET_CORTEX_M/cmsis_gcc.h \
+ .././mbed-os/cmsis/TARGET_CORTEX_M/mpu_armv7.h \
+ .././mbed-os/targets/TARGET_NXP/TARGET_LPC176X/device/system_LPC17xx.h \
+ .././mbed-os/targets/TARGET_NXP/TARGET_LPC176X/device/cmsis_nvic.h
