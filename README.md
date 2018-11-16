@@ -1,4 +1,4 @@
-## Installation
+## Installation (for mac)
 
 First, install `virtualenv`, which allows you to isolate python environments:
 
@@ -20,9 +20,9 @@ $ source mbedCanEnv/bin/activate
 
 Then add the virtualenv bin to PATH
 ```sh
-$ sudo sudo nano /etc/paths
+$ sudo nano /etc/paths
 ```
-And add the location of `bedCanEnv/bin`
+And add the location of `bedCanEnv/bin` (can find this with `pwd` command in the directory)
 
 You can leave this environment at any point with
 
