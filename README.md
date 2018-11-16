@@ -30,7 +30,7 @@ You can leave this environment at any point with
 $ deactivate
 ```
 
-Now install the mbed command line interface in that your virtualenv (mbed-cli)
+Now install the mbed command line interface (mbed-cli)
 ```sh
 $ pip install mbed-cli
 ```
