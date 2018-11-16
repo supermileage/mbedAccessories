@@ -1,6 +1,6 @@
 ## Installation
 
-First, install `virtualenv `, which allows you to isolate python environments:
+First, install `virtualenv`, which allows you to isolate python environments:
 
 ```sh
 $ pip install virtualenv
@@ -17,6 +17,12 @@ Enter that virtualenv
 ```sh
 $ source mbedCanEnv/bin/activate
 ```
+
+Then add the virtualenv bin to PATH
+```sh
+$ sudo sudo nano /etc/paths
+```
+And add the location of `bedCanEnv/bin`
 
 You can leave this environment at any point with
 
