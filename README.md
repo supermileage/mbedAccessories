@@ -44,12 +44,12 @@ Navigate to mbed-os folder, and run
 $ pip install -r requirements.txt
 ```
 
-If you dont already have pyocd, install it
+Install the pyOCD which is our debugging server
 ```sh
 $ pip install -U pyocd
 ```
 
-If you dont have arm-none-eabi-gdb you will need to install that aswell
+Install the arm toolchain arm-none-eabi-gdb
 ```sh
 $ brew tap ArmMbed/homebrew-formulae
 $ brew install arm-none-eabi-gcc
