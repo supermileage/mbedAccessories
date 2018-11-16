@@ -44,9 +44,15 @@ Navigate to mbed-os folder, and run
 $ pip install -r requirements.txt
 ```
 
-Then install the debugging server
+If you dont already have pyocd, install it
 ```sh
 $ pip install -U pyocd
+```
+
+If you dont have arm-none-eabi-gdb you will need to install that aswell
+```sh
+$ brew tap ArmMbed/homebrew-formulae
+$ brew install arm-none-eabi-gcc
 ```
 
 Now open the project in VSCode, and go the launch.json. Change the 2 lines with the comment 'CHANGE', to the location of your 'arm-none-eabi-gdb' and 'pyocd-gdbserver' 
