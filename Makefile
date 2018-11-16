@@ -39,7 +39,7 @@ VPATH = ..
 ###############################################################################
 # Project settings
 
-PROJECT := mbedCan
+PROJECT := mbedCanbus
 
 
 # Project settings
