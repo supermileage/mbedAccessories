@@ -31,7 +31,7 @@ $ pip install mbed-cli
 
 Then clone the repo
 ```sh
-$ https://github.com/supermileage/mbedCanbus
+$ git clone https://github.com/supermileage/mbedCanbus
 ```
 
 Navigate into the repo and run the following command to install the mbed libraries
