@@ -9,13 +9,13 @@ $ pip install virtualenv
 Next, create a virtual environment
 
 ```sh
-$ virtualenv mbedCan
+$ virtualenv mbedCanEnv
 ```
 
 Enter that virtualenv
 
 ```sh
-$ source mbedCan/bin/activate
+$ source mbedCanEnv/bin/activate
 ```
 
 You can leave this environment at any point with
