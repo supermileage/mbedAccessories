@@ -227,7 +227,6 @@
                 "DEVICE_RTC=1",
                 "DEVICE_LOCALFILESYSTEM=1",
                 "__CMSIS_RTOS",
-                "MBED_BUILD_TIMESTAMP=1541924229.81",
                 "TOOLCHAIN_GCC",
                 "DEVICE_CAN=1",
                 "TARGET_LIKE_CORTEX_M3",
@@ -250,6 +249,7 @@
                 "DEVICE_SERIAL_FC=1",
                 "DEVICE_USTICKER=1",
                 "TARGET_MBED_LPC1768",
+                "MBED_BUILD_TIMESTAMP=1542792672.3",
                 "DEVICE_PORTIN=1",
                 "DEVICE_SLEEP=1",
                 "TOOLCHAIN_GCC_ARM",
@@ -261,15 +261,7 @@
                 "DEVICE_FLASH=1",
                 "DEVICE_SEMIHOST=1",
                 "DEVICE_DEBUG_AWARENESS=1"
-            ],
-            "macFrameworkPath": [
-                "/System/Library/Frameworks",
-                "/Library/Frameworks"
-            ],
-            "intelliSenseMode": "clang-x64",
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c11",
-            "cppStandard": "c++17"
+            ]
         },
         {
             "includePath": [
@@ -498,7 +490,6 @@
                 "DEVICE_RTC=1",
                 "DEVICE_LOCALFILESYSTEM=1",
                 "__CMSIS_RTOS",
-                "MBED_BUILD_TIMESTAMP=1541924229.81",
                 "TOOLCHAIN_GCC",
                 "DEVICE_CAN=1",
                 "TARGET_LIKE_CORTEX_M3",
@@ -521,6 +512,7 @@
                 "DEVICE_SERIAL_FC=1",
                 "DEVICE_USTICKER=1",
                 "TARGET_MBED_LPC1768",
+                "MBED_BUILD_TIMESTAMP=1542792672.3",
                 "DEVICE_PORTIN=1",
                 "DEVICE_SLEEP=1",
                 "TOOLCHAIN_GCC_ARM",
@@ -532,15 +524,7 @@
                 "DEVICE_FLASH=1",
                 "DEVICE_SEMIHOST=1",
                 "DEVICE_DEBUG_AWARENESS=1"
-            ],
-            "macFrameworkPath": [
-                "/System/Library/Frameworks",
-                "/Library/Frameworks"
-            ],
-            "intelliSenseMode": "clang-x64",
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c11",
-            "cppStandard": "c++17"
+            ]
         },
         {
             "includePath": [
@@ -769,7 +753,6 @@
                 "DEVICE_RTC=1",
                 "DEVICE_LOCALFILESYSTEM=1",
                 "__CMSIS_RTOS",
-                "MBED_BUILD_TIMESTAMP=1541924229.81",
                 "TOOLCHAIN_GCC",
                 "DEVICE_CAN=1",
                 "TARGET_LIKE_CORTEX_M3",
@@ -792,6 +775,7 @@
                 "DEVICE_SERIAL_FC=1",
                 "DEVICE_USTICKER=1",
                 "TARGET_MBED_LPC1768",
+                "MBED_BUILD_TIMESTAMP=1542792672.3",
                 "DEVICE_PORTIN=1",
                 "DEVICE_SLEEP=1",
                 "TOOLCHAIN_GCC_ARM",
@@ -803,12 +787,7 @@
                 "DEVICE_FLASH=1",
                 "DEVICE_SEMIHOST=1",
                 "DEVICE_DEBUG_AWARENESS=1"
-            ],
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c11",
-            "cppStandard": "c++17"
+            ]
         }
-    ],
-    "version": 4
+    ]
 }

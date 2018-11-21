@@ -42,7 +42,7 @@
             "osx": {
                 "MIMode": "gdb",
                 "MIDebuggerPath": "/usr/local/bin/arm-none-eabi-gdb", // CHANGE: find path with "which arm-none-eabi-gdb"
-                "debugServerPath": "/Users/spencerperkins/Developer/Environments/mbedEnv/bin/pyocd-gdbserver" // CHANGE: find path with which "pyocd-gdbserver"
+                "debugServerPath": "/Users/spencerperkins/Developer/Environments/mbedCanEnv/bin/pyocd-gdbserver" // CHANGE: find path with which "pyocd-gdbserver"
             },
             "windows": {
                 "preLaunchTask": "make.exe",
