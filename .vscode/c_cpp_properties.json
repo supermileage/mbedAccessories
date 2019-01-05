@@ -227,7 +227,6 @@
                 "DEVICE_RTC=1",
                 "DEVICE_LOCALFILESYSTEM=1",
                 "__CMSIS_RTOS",
-                "MBED_BUILD_TIMESTAMP=1546721078.93",
                 "TOOLCHAIN_GCC",
                 "DEVICE_CAN=1",
                 "TARGET_LIKE_CORTEX_M3",
@@ -260,6 +259,7 @@
                 "DEVICE_SERIAL=1",
                 "DEVICE_FLASH=1",
                 "DEVICE_SEMIHOST=1",
+                "MBED_BUILD_TIMESTAMP=1546722958.0",
                 "DEVICE_DEBUG_AWARENESS=1"
             ],
             "macFrameworkPath": [
@@ -495,7 +495,6 @@
                 "DEVICE_RTC=1",
                 "DEVICE_LOCALFILESYSTEM=1",
                 "__CMSIS_RTOS",
-                "MBED_BUILD_TIMESTAMP=1546721078.93",
                 "TOOLCHAIN_GCC",
                 "DEVICE_CAN=1",
                 "TARGET_LIKE_CORTEX_M3",
@@ -528,6 +527,7 @@
                 "DEVICE_SERIAL=1",
                 "DEVICE_FLASH=1",
                 "DEVICE_SEMIHOST=1",
+                "MBED_BUILD_TIMESTAMP=1546722958.0",
                 "DEVICE_DEBUG_AWARENESS=1"
             ],
             "macFrameworkPath": [
@@ -763,7 +763,6 @@
                 "DEVICE_RTC=1",
                 "DEVICE_LOCALFILESYSTEM=1",
                 "__CMSIS_RTOS",
-                "MBED_BUILD_TIMESTAMP=1546721078.93",
                 "TOOLCHAIN_GCC",
                 "DEVICE_CAN=1",
                 "TARGET_LIKE_CORTEX_M3",
@@ -796,6 +795,7 @@
                 "DEVICE_SERIAL=1",
                 "DEVICE_FLASH=1",
                 "DEVICE_SEMIHOST=1",
+                "MBED_BUILD_TIMESTAMP=1546722958.0",
                 "DEVICE_DEBUG_AWARENESS=1"
             ],
             "intelliSenseMode": "gcc-x64"
