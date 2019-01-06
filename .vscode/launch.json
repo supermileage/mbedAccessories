@@ -6,7 +6,7 @@
             "name": "C++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/BUILD/${workspaceRootFolderName}.elf",
+            "program": "${workspaceRoot}/BUILD/LPC1768/GCC_ARM-DEBUG/${workspaceRootFolderName}.elf",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceRoot}",
@@ -17,10 +17,10 @@
             "filterStderr": true,
             "filterStdout": false,
             "serverStarted": "GDB\\ server\\ started", //May need to add "at\\ port:3333" as it used to need to be the output of starting pyocd-gdbserver 
-            "preLaunchTask": "make",
+            "preLaunchTask": "mbed",
             "setupCommands": [
                 { "text": "-target-select remote localhost:3333", "description": "connect to target", "ignoreFailures": false },
-                { "text": "-file-exec-and-symbols ${workspaceRoot}/BUILD/${workspaceRootFolderName}.elf", "description": "load file", "ignoreFailures": false},
+                { "text": "-file-exec-and-symbols ${workspaceRoot}/BUILD/LPC1768/GCC_ARM-DEBUG/${workspaceRootFolderName}.elf", "description": "load file", "ignoreFailures": false},
                 { "text": "-interpreter-exec console \"monitor endian little\"", "ignoreFailures": false },
                 { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
                 { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
@@ -45,12 +45,12 @@
                 "debugServerPath": "/Users/spencerperkins/Developer/Environments/mbedCanEnv/bin/pyocd-gdbserver" // CHANGE: find path with which "pyocd-gdbserver"
             },
             "windows": {
-                "preLaunchTask": "make.exe",
+                "preLaunchTask": "mbed.exe",
                 "MIMode": "gdb",
                 "MIDebuggerPath": "C:\\Program Files (x86)\\GNU Tools ARM Embedded\\4.9 2015q3\\bin\\arm-none-eabi-gdb.exe",
                 "debugServerPath": "pyocd-gdbserver.exe",
                 "setupCommands": [
-                    { "text": "-environment-cd ${workspaceRoot}\\BUILD" },
+                    { "text": "-environment-cd ${workspaceRoot}\\BUILD\\LPC1768\\GCC_ARM" },
                     { "text": "-target-select remote localhost:3333", "description": "connect to target", "ignoreFailures": false },
                     { "text": "-file-exec-and-symbols ${workspaceRootFolderName}.elf", "description": "load file", "ignoreFailures": false},
                     { "text": "-interpreter-exec console \"monitor endian little\"", "ignoreFailures": false },

@@ -42,7 +42,7 @@ void setup() {
 int main() {
     // setup();
 
-    test1.addToNum(4);
+    pc.printf("%d", test1.addToNum(4));
 
     led1 = !led1;
         
