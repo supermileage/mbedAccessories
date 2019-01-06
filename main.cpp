@@ -14,9 +14,7 @@ Serial pc(USBTX, USBRX); // tx, rx
 // Serial odrive_serial(p9,p10); //TX (ODrive RX), RX (ODrive TX)
 
 // Odrive communication object
-// ODriveMbed odrive(&pc);
-
-Testing test1(5);
+ODriveMbed odrive(&pc);
 
 void setup() {
   // ODrive uses 115200 baud
@@ -40,14 +38,9 @@ void setup() {
 
 
 int main() {
-    // setup();
-
-    pc.printf("%d", test1.addToNum(4));
+    setup();
 
     led1 = !led1;
-        
-    // odrive.setPosition(num, num2);
-
 
 //     if (Serial.available()) {
 //     char c = Serial.read();
