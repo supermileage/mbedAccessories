@@ -39,8 +39,9 @@ class ODriveMbed {
 
         // State helper
         bool run_state(int axis, int requested_state, bool wait);
-    private:
+
         string readString();
+    private:
         Serial* serial;
 };
 

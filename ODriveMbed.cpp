@@ -42,9 +42,9 @@ void ODriveMbed::setVelocity(int motor_number, float velocity, float current_fee
 //     return readString().toFloat();
 // }
 
-// int32_t ODriveMbed::readInt() {
-//     return readString().toInt();
-// }
+int32_t ODriveMbed::readInt() {
+    return atoi(readString().c_str());
+}
 
 bool ODriveMbed::run_state(int axis, int requested_state, bool wait) {
     int timeout_ctr = 100;
@@ -78,3 +78,18 @@ bool ODriveMbed::run_state(int axis, int requested_state, bool wait) {
 //     }
 //     return str;
 // }
+
+string ODriveMbed::readString() {
+  string str;
+  while(1) {
+    if(serial->readable()) {
+      char c = serial->getc();
+      if (c == '\n')
+        break;
+      str += c;
+    } else {
+      // TODO: guard against infinite loop here
+    }
+  }
+  return str;
+}
