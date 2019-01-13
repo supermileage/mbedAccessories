@@ -38,14 +38,20 @@ void ODriveMbed::setVelocity(int motor_number, float velocity, float current_fee
     serial->printf("v %d %f %f \n", motor_number, velocity, current_feedforward);
 }
 
-// float ODriveMbed::readFloat() {
-//     return readString().toFloat();
-// }
+float ODriveMbed::getBusVoltage(){
+    serial->printf("r vbus_voltage");
+    return readFloat();
+}
+
+float ODriveMbed::readFloat() {
+    return atof(readString().c_str());
+}
 
 int32_t ODriveMbed::readInt() {
     return atoi(readString().c_str());
 }
 
+// TODO: Figure out what this does and implement?
 bool ODriveMbed::run_state(int axis, int requested_state, bool wait) {
     int timeout_ctr = 100;
     serial->printf("w axis %d %d \n");
@@ -61,33 +67,17 @@ bool ODriveMbed::run_state(int axis, int requested_state, bool wait) {
     return timeout_ctr > 0;
 }
 
-// string ODriveMbed::readString() {
-//     string str = "";
-//     static const unsigned long timeout = 1000;
-//     unsigned long timeout_start = millis();
-//     for (;;) {
-//         while (!serial_.available()) {
-//             if (millis() - timeout_start >= timeout) {
-//                 return str;
-//             }
-//         }
-//         char c = serial_.read();
-//         if (c == '\n')
-//             break;
-//         str += c;
-//     }
-//     return str;
-// }
-
 string ODriveMbed::readString() {
   string str;
   while(1) {
-    if(serial->readable()) {
+    bool readable = serial->readable();
+    if(readable) {
       char c = serial->getc();
       if (c == '\n')
         break;
       str += c;
     } else {
+
       // TODO: guard against infinite loop here
     }
   }

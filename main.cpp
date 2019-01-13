@@ -11,8 +11,8 @@ DigitalOut led1(LED1);
 
 // Serial to the ODrive
 Serial pc(USBTX, USBRX); // tx, rx
-Serial serial1(p9,p10);
-Serial serial2(p13,p14);
+// Serial serial1(p9,p10);
+Serial serial2(p13,p14); //TX (ODrive RX), RX (ODrive TX)
 // Serial odrive_serial(p9,p10); //TX (ODrive RX), RX (ODrive TX)
 
 // Odrive communication object
@@ -30,10 +30,15 @@ void setup() {
 }
 
 int main() {
-    while(1) {
-      serial1.printf("12\n");
-      int n = odrive.readInt();
-    }
+    serial2.baud(115200);
+
+    odrive.setVelocity(0,5.0);
+
+    // while(1) {
+      // float n = odrive.getBusVoltage();
+      // serial2.printf("r vbus_voltage");
+      // float n = odrive.readFloat();
+    // }
 }
 
 

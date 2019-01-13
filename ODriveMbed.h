@@ -32,6 +32,7 @@ class ODriveMbed {
         void setPosition(int motor_number, float position, float velocity_feedforward, float current_feedforward);
         void setVelocity(int motor_number, float velocity);
         void setVelocity(int motor_number, float velocity, float current_feedforward);
+        float getBusVoltage();
 
         // General params
         float readFloat();
@@ -40,8 +41,8 @@ class ODriveMbed {
         // State helper
         bool run_state(int axis, int requested_state, bool wait);
 
-        string readString();
     private:
+        string readString();
         Serial* serial;
 };
 
