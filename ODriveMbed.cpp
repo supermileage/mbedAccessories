@@ -18,29 +18,38 @@ static const int kMotorStrideUint16 = 2;
 ODriveMbed::ODriveMbed(Serial* serial_) 
     : serial(serial_) {}
 
-void ODriveMbed::setPosition(int motor_number, float position) {
-    setPosition(motor_number, position, 0.0f, 0.0f);
+void ODriveMbed::setPosition(int motorNum, float position) {
+    setPosition(motorNum, position, 0.0f, 0.0f);
 }
 
-void ODriveMbed::setPosition(int motor_number, float position, float velocity_feedforward) {
-    setPosition(motor_number, position, velocity_feedforward, 0.0f);
+void ODriveMbed::setPosition(int motorNum, float position, float velocity_feedforward) {
+    setPosition(motorNum, position, velocity_feedforward, 0.0f);
 }
 
-void ODriveMbed::setPosition(int motor_number, float position, float velocity_feedforward, float current_feedforward) {
-    serial->printf("p %d %f %f %f \n", motor_number, position, velocity_feedforward, current_feedforward);
+void ODriveMbed::setPosition(int motorNum, float position, float velocity_feedforward, float current_feedforward) {
+    serial->printf("p %d %f %f %f \n", motorNum, position, velocity_feedforward, current_feedforward);
 }
 
-void ODriveMbed::setVelocity(int motor_number, float velocity) {
-    setVelocity(motor_number, velocity, 0.0f);
+void ODriveMbed::setVelocity(int motorNum, float velocity) {
+    setVelocity(motorNum, velocity, 0.0f);
 }
 
-void ODriveMbed::setVelocity(int motor_number, float velocity, float current_feedforward) {
-    serial->printf("v %d %f %f \n", motor_number, velocity, current_feedforward);
+void ODriveMbed::setVelocity(int motorNum, float velocity, float current_feedforward) {
+    serial->printf("v %d %f %f \n", motorNum, velocity, current_feedforward);
 }
 
-float ODriveMbed::getBusVoltage(){
-    serial->printf("r vbus_voltage");
+void ODriveMbed::setCurrent(int motorNum, float current) {
+    serial->printf("c %d %f\n", motorNum, current);
+}
+
+float ODriveMbed::readBusVoltage() {
+    serial->printf("r vbus_voltage \n");
     return readFloat();
+}
+
+float ODriveMbed::readSetVelocity(int motorNum) {
+    serial->printf("r %d.controller.vel_setpoint \n", motorNum);
+    return readFloat(); 
 }
 
 float ODriveMbed::readFloat() {
@@ -69,6 +78,8 @@ bool ODriveMbed::run_state(int axis, int requested_state, bool wait) {
 
 string ODriveMbed::readString() {
   string str;
+  Timer t;
+  t.start();
   while(1) {
     bool readable = serial->readable();
     if(readable) {
@@ -76,9 +87,8 @@ string ODriveMbed::readString() {
       if (c == '\n')
         break;
       str += c;
-    } else {
-
-      // TODO: guard against infinite loop here
+    } else if(t.read_ms() > 500) {
+        break; // Protects against infinite loop
     }
   }
   return str;

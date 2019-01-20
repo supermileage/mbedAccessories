@@ -12,33 +12,35 @@ DigitalOut led1(LED1);
 // Serial to the ODrive
 Serial pc(USBTX, USBRX); // tx, rx
 // Serial serial1(p9,p10);
-Serial serial2(p13,p14); //TX (ODrive RX), RX (ODrive TX)
-// Serial odrive_serial(p9,p10); //TX (ODrive RX), RX (ODrive TX)
+Serial odriveSerial(p13,p14); //TX (ODrive RX: GPIO2), RX (ODrive TX: GPIO1)
+// Serial odrive_serial(p9,p10); //TX (ODrive RX: GPIO2), RX (ODrive TX: GPIO1)
 
 // Odrive communication object
-ODriveMbed odrive(&serial2);
+ODriveMbed odrive(&odriveSerial);
 
 void setup() {
-  // ODrive uses 115200 baud
-//   odrive_serial.baud(115200);
-  
-  pc.printf("Ready!");
-  pc.printf("Send the character '0' or '1' to calibrate respective motor (you must do this before you can command movement \n)");
-  pc.printf("Send the character 's' to exectue test move \n");
-  pc.printf("Send the character 'b' to read bus voltage \n");
-  pc.printf("Send the character 'p' to read motor positions in a 10s loop \n");
+    odriveSerial.baud(115200);
 }
 
 int main() {
-    serial2.baud(115200);
-
-    odrive.setVelocity(0,5.0);
-
-    // while(1) {
-      // float n = odrive.getBusVoltage();
-      // serial2.printf("r vbus_voltage");
-      // float n = odrive.readFloat();
-    // }
+    setup();
+    bool on = false;
+    led1 = 1;
+    while(1) {
+      if(on) {
+        odrive.setVelocity(0,6.2);
+        pc.printf("Speed set: 6.2, ");
+        pc.printf("Bus voltage: %f \n", odrive.readBusVoltage());
+        pc.printf("Read set Velocity:: %f \n", odrive.readSetVelocity(0));
+        on = false;
+      } else {
+        odrive.setVelocity(0,1000);
+        pc.printf("Speed set: 1000, ");
+        pc.printf("Bus voltage: %f \n", odrive.readBusVoltage());
+        pc.printf("Read set Velocity:: %f \n", odrive.readSetVelocity(0));
+        on = true;
+      }
+    }
 }
 
 
