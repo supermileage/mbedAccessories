@@ -3,29 +3,45 @@
 // * Do not use wait statements while debugging
 // * For serial print use pc.print, and open "screen mbed sterm" in terminal
 
+#include "ODriveMbed.h"
 #include "mbed.h"
+#include <string>
 
 DigitalOut led1(LED1);
-DigitalOut led2(LED2);
-CAN can1(p9, p10);
-CAN can2(p30, p29);
-char counter = 0;
+
+// Serial to the ODrive
+Serial pc(USBTX, USBRX); // tx, rx
+// Serial serial1(p9,p10);
+Serial odriveSerial(p13,p14); //TX (ODrive RX: GPIO2), RX (ODrive TX: GPIO1)
+// Serial odrive_serial(p9,p10); //TX (ODrive RX: GPIO2), RX (ODrive TX: GPIO1)
+
+// Odrive communication object
+ODriveMbed odrive(&odriveSerial);
+
+void setup() {
+    odriveSerial.baud(115200);
+}
 
 int main() {
-    CANMessage msg;
+    setup();
+    bool on = false;
+    led1 = 1;
     while(1) {
-        if(can1.write(CANMessage(1337, &counter, 8))) {
-            counter++;
-            printf("Message sent %d\n", counter);
-            led1 = !led1;
-        } 
-        printf("loop()\n");
-        if(can2.read(msg)) {
-            printf("Message received: %d\n", msg.data[0]);
-            led2 = !led2;
-        } 
-        led2 = !led2;
-        printf("CAN 1 - td: %d, rd: %d  \n", can1.tderror(), can1.rderror());
-        printf("CAN 2 - td: %d, rd: %d  \n", can2.tderror(), can2.rderror());
+      if(on) {
+        odrive.setVelocity(0,6.2);
+        pc.printf("Speed set: 6.2, ");
+        pc.printf("Bus voltage: %f \n", odrive.readBusVoltage());
+        pc.printf("Read set Velocity:: %f \n", odrive.readSetVelocity(0));
+        on = false;
+      } else {
+        odrive.setVelocity(0,1000);
+        pc.printf("Speed set: 1000, ");
+        pc.printf("Bus voltage: %f \n", odrive.readBusVoltage());
+        pc.printf("Read set Velocity:: %f \n", odrive.readSetVelocity(0));
+        on = true;
+      }
     }
 }
+
+
+
