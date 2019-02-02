@@ -3,45 +3,33 @@
 // * Do not use wait statements while debugging
 // * For serial print use pc.print, and open "screen mbed sterm" in terminal
 
-#include "ODriveMbed.h"
 #include "mbed.h"
-#include <string>
+#include "ODriveMbed.h"
+#include "pins.h"
+#include <iostream>
 
 DigitalOut led1(LED1);
-
-// Serial to the ODrive
-Serial pc(USBTX, USBRX); // tx, rx
-// Serial serial1(p9,p10);
-Serial odriveSerial(p13,p14); //TX (ODrive RX: GPIO2), RX (ODrive TX: GPIO1)
-// Serial odrive_serial(p9,p10); //TX (ODrive RX: GPIO2), RX (ODrive TX: GPIO1)
-
-// Odrive communication object
-ODriveMbed odrive(&odriveSerial);
+ODriveMbed odrive(&serial); // Odrive communication object
+Timer loopTimer;
+int runLoopSpeed = 10; //ms
 
 void setup() {
-    odriveSerial.baud(115200);
+    serial.baud(115200);
+    loopTimer.start();
 }
 
 int main() {
     setup();
+    int prevLoopStartTime = loopTimer.read_ms();
+
     bool on = false;
-    led1 = 1;
-    while(1) {
-      if(on) {
-        odrive.setVelocity(0,6.2);
-        pc.printf("Speed set: 6.2, ");
-        pc.printf("Bus voltage: %f \n", odrive.readBusVoltage());
-        pc.printf("Read set Velocity:: %f \n", odrive.readSetVelocity(0));
-        on = false;
-      } else {
-        odrive.setVelocity(0,1000);
-        pc.printf("Speed set: 1000, ");
-        pc.printf("Bus voltage: %f \n", odrive.readBusVoltage());
-        pc.printf("Read set Velocity:: %f \n", odrive.readSetVelocity(0));
-        on = true;
-      }
+
+    while(true) {
+        while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) { } //Regulate speed of the main loop to runLoopSpeed
+		prevLoopStartTime = loopTimer.read_ms();
+        cout << prevLoopStartTime << endl;
+
+        led1 = !led1;
     }
 }
-
-
 

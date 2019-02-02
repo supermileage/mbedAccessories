@@ -1,23 +1,32 @@
-digitalIn indicatorR(p5);
-digitalIn indicatorL(p6);
-digitalIn pcbPower(p7);
-digitalIn headlights(p8);
-digitalIn wiper(p9);
-digitalIn harards(p10);
+#include "mbed.h"
+
+#ifndef PINS_H
+#define PINS_H
+
+DigitalIn indicatorR(p5);
+DigitalIn indicatorL(p6);
+DigitalIn pcbPower(p7);
+DigitalIn headlights(p8);
+DigitalIn wiper(p9);
+DigitalIn harards(p10);
 // TODO: Add screen pins
 
-digitalIn dial1(p15);
-digitalIn dial2(p16);
-digitalIn dial3(p17);
-digitalIn dial4(p18);
-digitalIn dial5(p19);
+DigitalIn dial1(p15);
+DigitalIn dial2(p16);
+DigitalIn dial3(p17);
+DigitalIn dial4(p18);
+DigitalIn dial5(p19);
 
-digitalIn dms(p21);
-digitalIn dialB(p22);
-digitalIn dialA(p23);
-digitalIn horn(p24);
+DigitalIn dms(p21);
+DigitalIn dialB(p22);
+DigitalIn dialA(p23);
+DigitalIn horn(p24);
 
+Serial serial(p28,p27);
 CAN can(p30, p29);
+Serial pc(USBTX, USBRX);
+
+#endif
 
 
 
