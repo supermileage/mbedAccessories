@@ -1,30 +1,36 @@
 #include "mbed.h"
+#include "CanButton.h"
 
 #ifndef PINS_H
 #define PINS_H
 
-DigitalIn indicatorR(p5);
-DigitalIn indicatorL(p6);
-DigitalIn pcbPower(p7);
-DigitalIn headlights(p8);
-DigitalIn wiper(p9);
-DigitalIn harards(p10);
+extern CAN can(p30, p29);
+extern Serial pc(USBTX, USBRX);
+
+// TODO: Actually define can id's
+
+CanButton indicatorR(p5, 1);
+CanButton indicatorL(p6, 2);
+CanButton headlights(p8, 3);
+CanButton wiper(p9, 4);
+CanButton harards(p10, 5);
+
+CanButton dial1(p15, 6);
+CanButton dial2(p16, 7);
+CanButton dial3(p17, 8);
+CanButton dial4(p18, 9);
+CanButton dial5(p19, 10);
+
+CanButton dialB(p22, 11);
+CanButton dialA(p23, 12);
+CanButton horn(p24, 13);
+
+
 // TODO: Add screen pins
-
-DigitalIn dial1(p15);
-DigitalIn dial2(p16);
-DigitalIn dial3(p17);
-DigitalIn dial4(p18);
-DigitalIn dial5(p19);
-
+DigitalIn pcbPower(p7);
 DigitalIn dms(p21);
-DigitalIn dialB(p22);
-DigitalIn dialA(p23);
-DigitalIn horn(p24);
 
 Serial serial(p28,p27);
-CAN can(p30, p29);
-Serial pc(USBTX, USBRX);
 
 #endif
 
