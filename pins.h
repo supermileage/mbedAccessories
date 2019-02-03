@@ -8,8 +8,7 @@ extern CAN can(p30, p29);
 // extern CAN can(p9, p10); // Use for testing
 extern Serial pc(USBTX, USBRX);
 
-// TODO: Actually define can id's
-
+// TODO: Define Actual can id's (figure out presedence)
 CanButton indicatorR(p5, 1);
 CanButton indicatorL(p6, 2);
 CanButton headlights(p8, 3);

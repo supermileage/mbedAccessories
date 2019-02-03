@@ -27,6 +27,7 @@ int main() {
 		prevLoopStartTime = loopTimer.read_ms();
 
         indicatorR.poll();
+        // Add every active can button here and call poll()
     }
 }
 
