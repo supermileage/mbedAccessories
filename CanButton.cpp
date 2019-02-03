@@ -1,7 +1,6 @@
 #include "CanButton.h"
 
 extern CAN can;
-extern Serial pc;
 
 CanButton::CanButton(PinName pin, unsigned canID_) : canID(canID_), button(pin, PullUp), on(false) {}
 
@@ -9,7 +8,7 @@ void CanButton::poll() {
     bool readPin = !button.read(); // Pulled up, so 0 when pushed
     if(!on && readPin) {
         debounceDelay();
-        if(!button.read()) {
+        if(!button.read()) { // Debounce
             toggleButton();
         }
     } else if(on && !readPin) {
@@ -19,17 +18,10 @@ void CanButton::poll() {
 
 void CanButton::toggleButton() {
     on = !on;
-    CANMessage msg;
-    msg.id = canID;
-    msg.len = 1;
     if(on) {
-        msg.data[0] = 1;
-        can.write(msg);
-        pc.printf("on \n");
+        can.write(CANMessage(canID,"1",1));
     } else {
-        msg.data[0] = 0;
-        can.write(msg);
-        pc.printf("off \n");
+        can.write(CANMessage(canID,"0",1));
     }
 }
 
