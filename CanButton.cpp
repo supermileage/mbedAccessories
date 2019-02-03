@@ -18,6 +18,8 @@ void CanButton::poll() {
 }
 
 void CanButton::toggleButton() {
+    DigitalOut led(LED1);
+
     on = !on;
     CANMessage msg;
     msg.id = canID;
@@ -26,10 +28,12 @@ void CanButton::toggleButton() {
         msg.data[0] = 1;
         can.write(msg);
         pc.printf("on \n");
+        led = 1;
     } else {
         msg.data[0] = 0;
         can.write(msg);
         pc.printf("off \n");
+        led = 0;
     }
 }
 

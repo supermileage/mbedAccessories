@@ -4,7 +4,8 @@
 #ifndef PINS_H
 #define PINS_H
 
-extern CAN can(p30, p29);
+// extern CAN can(p30, p29);
+extern CAN can(p9, p10); // Temporary for testing
 extern Serial pc(USBTX, USBRX);
 
 // TODO: Actually define can id's
@@ -12,8 +13,8 @@ extern Serial pc(USBTX, USBRX);
 CanButton indicatorR(p5, 1);
 CanButton indicatorL(p6, 2);
 CanButton headlights(p8, 3);
-CanButton wiper(p9, 4);
-CanButton harards(p10, 5);
+// CanButton wiper(p9, 4); // Temporary for testing
+// CanButton harards(p10, 5);
 
 CanButton dial1(p15, 6);
 CanButton dial2(p16, 7);
