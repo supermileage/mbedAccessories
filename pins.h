@@ -4,16 +4,16 @@
 #ifndef PINS_H
 #define PINS_H
 
-extern CAN can(p30, p29);
-// extern CAN can(p9, p10); // Use for testing
+// extern CAN can(p30, p29);
+extern CAN can(p9, p10); // Use for testing
 extern Serial pc(USBTX, USBRX);
 
 // TODO: Define Actual can id's (figure out presedence)
 CanButton indicatorR(p5, 1);
 CanButton indicatorL(p6, 2);
 CanButton headlights(p8, 3);
-CanButton wiper(p9, 4); // Comment this out for testing (w/ current wiring)
-CanButton harards(p10, 5); // Comment this out for testing (w/ current wiring)
+// CanButton wiper(p9, 4); // Comment this out for testing (w/ current wiring)
+// CanButton harards(p10, 5); // Comment this out for testing (w/ current wiring)
 
 CanButton dial1(p15, 6);
 CanButton dial2(p16, 7);

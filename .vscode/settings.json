@@ -10,6 +10,8 @@
         "atomic": "cpp",
         "ios": "cpp",
         "system_error": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iterator": "cpp",
+        "string_view": "cpp"
     }
 }
