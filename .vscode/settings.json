@@ -12,6 +12,7 @@
         "system_error": "cpp",
         "ostream": "cpp",
         "iterator": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "vector": "cpp"
     }
 }
