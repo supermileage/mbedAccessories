@@ -12,6 +12,7 @@
 
 class ODriveMbed {
     public:
+        // TODO: add switching control modes 
         ODriveMbed(Serial* serial_);
 
         // Commands

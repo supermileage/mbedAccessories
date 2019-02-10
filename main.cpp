@@ -2,6 +2,7 @@
 // * Need breakpoint on first line of main to debug without an exception, known error in VSCode
 // * Do not use wait statements while debugging
 // * For serial print use pc.print, and open "screen mbed sterm" in terminal
+// * For some reason during debugging analog read is not working properly, so dont debug while testing throttle
 
 #include "mbed.h"
 #include "ODriveMbed.h"
@@ -11,7 +12,9 @@
 DigitalOut led1(LED1);
 ODriveMbed odrive(&serial); // Odrive communication object
 Timer loopTimer;
-int runLoopSpeed = 10; //ms
+// int runLoopSpeed = 10; //ms
+int runLoopSpeed = 1000; //ms //TODO: remove this is temp
+
 
 void setup() {
     serial.baud(115200);
@@ -26,7 +29,8 @@ int main() {
         while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) { } //Regulate speed of the main loop to runLoopSpeed
 		prevLoopStartTime = loopTimer.read_ms();
 
-        indicatorR.poll();
+        throttle.poll();
+        // indicatorR.poll();
         // Add every active can button here and call poll()
     }
 }
