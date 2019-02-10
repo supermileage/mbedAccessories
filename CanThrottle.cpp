@@ -33,12 +33,10 @@ void CanThrottle::poll() {
         case constantVelocity:
             dataAsFloat *= maxVelocity;
             mode = '0';
-            cout << "VEL" << endl;
             break;
         case constantPower:
             dataAsFloat *= maxCurrent;
             mode = '1';
-            cout << "POW" << endl;
             break;
     }
 
@@ -46,15 +44,12 @@ void CanThrottle::poll() {
     switch(throttleRange) {
         case low:
             dataAsFloat *= lowScaleFactor;
-            cout << "LOW" << endl;
             break;
         case mid:
             dataAsFloat *= midScaleFactor;
-            cout << "MID" << endl;
             break;
         case high:
             dataAsFloat *= highScaleFactor;
-            cout << "HI" << endl;
             break;
     }
 
