@@ -9,20 +9,17 @@
 ODriveMbed::ODriveMbed(Serial* serial_) 
     : serial(serial_) {}
 
-void ODriveMbed::setPosition(int motorNum, float position) {
-    setPosition(motorNum, position, 0.0f, 0.0f);
+// TODO: test these
+void ODriveMbed::setConstantVelocityMode(int motorNum) {
+    serial->printf("w %d.controller.config.control_mode CTRL_MODE_VELOCITY_CONTROL \n", motorNum);
 }
 
-void ODriveMbed::setPosition(int motorNum, float position, float velocity_feedforward) {
-    setPosition(motorNum, position, velocity_feedforward, 0.0f);
+void ODriveMbed::setConstantPowerMode(int motorNum) {
+    serial->printf("w %d.controller.config.control_mode CTRL_MODE_CURRENT_CONTROL \n", motorNum);
 }
 
 void ODriveMbed::setPosition(int motorNum, float position, float velocity_feedforward, float current_feedforward) {
     serial->printf("p %d %f %f %f \n", motorNum, position, velocity_feedforward, current_feedforward);
-}
-
-void ODriveMbed::setVelocity(int motorNum, float velocity) {
-    setVelocity(motorNum, velocity, 0.0f);
 }
 
 void ODriveMbed::setVelocity(int motorNum, float velocity, float current_feedforward) {
@@ -42,6 +39,9 @@ float ODriveMbed::readSetVelocity(int motorNum) {
     serial->printf("r %d.controller.vel_setpoint \n", motorNum);
     return readFloat(); 
 }
+
+
+// Helpers
 
 float ODriveMbed::readFloat() {
     return atof(readString().c_str());

@@ -16,22 +16,18 @@ class ODriveMbed {
         ODriveMbed(Serial* serial_);
 
         // Commands
-        void setPosition(int motorNum, float position);
-        void setPosition(int motorNum, float position, float velocity_feedforward);
-        void setPosition(int motorNum, float position, float velocity_feedforward, float current_feedforward);
-        void setVelocity(int motorNum, float velocity);
-        void setVelocity(int motorNum, float velocity, float current_feedforward);
+        void setConstantVelocityMode(int motorNum);
+        void setConstantPowerMode(int motorNum);
+        void setPosition(int motorNum, float position, float velocity_feedforward = 0.0f, float current_feedforward = 0.0f);
+        void setVelocity(int motorNum, float velocity, float current_feedforward = 0.0f);
         void setCurrent(int motorNum, float current);
         float readBusVoltage();
         float readSetVelocity(int motorNum);
 
+    private:
         // General params
         float readFloat();
         int32_t readInt();
-
-        // State helper
-        bool run_state(int axis, int requested_state, bool wait);
-    private:
         Serial* serial;
         string readString(); 
 };

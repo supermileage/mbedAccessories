@@ -1,6 +1,7 @@
 #include "mbed.h"
 #include "CanButton.h"
 #include "CanThrottle.h"
+#include "CanIDs.h"
 
 #ifndef PINS_H
 #define PINS_H
@@ -24,14 +25,15 @@ DigitalIn dial5(p19, PullUp); //dial5
 
 DigitalIn rangePins[] = {loRangePin, midRangePin, highRangePin}; // [lo, mid, high]
 DigitalIn modePins[] = {constantVelocityPin, constantPowerPin}; // [constVel, constPow]
-CanThrottle throttle(p20,1, rangePins, modePins); 
+CanThrottle throttle(p20,throttleID, rangePins, modePins); 
 
-CanButton indicatorR(p5, 2);
-CanButton indicatorL(p6, 3);
-CanButton headlights(p8, 4);
-// CanButton wiper(p9, 5); // Comment this out for testing (w/ current wiring)
-// CanButton harards(p10, 6); // Comment this out for testing (w/ current wiring)
-CanButton horn(p24, 14);
+
+// CanItems
+CanButton indicatorL(p6, indicatorLID);
+CanButton headlights(p8, headlightsID);
+// CanButton wiper(p9, wiperID); // Comment this out for testing (w/ current wiring)
+// CanButton harards(p10, hazardsID); // Comment this out for testing (w/ current wiring)
+CanButton horn(p24, hornID);
 
 // TODO: Add screen pins
 DigitalOut pcbPower(p7);
