@@ -3,7 +3,7 @@
 // Original library: https://github.com/madcowswe/ODrive/blob/master/Mbed/ODriveMbed
 // Possible commands: https://docs.odriverobotics.com/ascii-protocol.html
 
-#include "mbed.h"
+#include "../mbed.h"
 #include "ODriveMbed.h"
 
 ODriveMbed::ODriveMbed(Serial* serial_) 

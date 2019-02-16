@@ -4,7 +4,7 @@
 // * For serial print use pc.print, and open "screen mbed sterm" in terminal
 // * For some reason during debugging analog read is not working properly, so dont debug while testing throttle
 
-#include "mbed.h"
+#include "../mbed.h"
 #include "ODriveMbed.h"
 #include "Pins.h"
 #include "CanHandler.h"
@@ -33,7 +33,7 @@ int main() {
         // indicatorR.poll();
         // Add every active can button here and call poll()
 
-        // canHandler.poll(); // Check and handle any can messages
+        canHandler.poll(); // Check and handle any can messages
     }
 }
 

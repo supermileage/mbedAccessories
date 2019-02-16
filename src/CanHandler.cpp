@@ -1,4 +1,4 @@
-#include "mbed.h"
+#include "../mbed.h"
 #include "CanHandler.h"
 #include "CanIDs.h"
 
@@ -46,7 +46,6 @@ void CanHandler::poll() {
 void CanHandler::handleThrottle(unsigned char* data) {
     const char* dataCasted = reinterpret_cast<const char*>(data);
     if(strlen(dataCasted) >= 1) {
-        cout << "Original Data: " << data << endl;
         int newMode = data[0] - '0';
         float value = atof(dataCasted + 1); // Removes most significant digit, which was the mode indicator
         switch(newMode) {

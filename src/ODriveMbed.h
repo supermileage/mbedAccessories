@@ -6,7 +6,7 @@
 #ifndef ODriveMbed_h
 #define ODriveMbed_h
 
-#include "mbed.h"
+#include "../mbed.h"
 #include <iostream>
 #include <string>
 
