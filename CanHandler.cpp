@@ -46,12 +46,9 @@ void CanHandler::poll() {
 void CanHandler::handleThrottle(unsigned char* data) {
     const char* dataCasted = reinterpret_cast<const char*>(data);
     if(strlen(dataCasted) >= 1) {
+        cout << "Original Data: " << data << endl;
         int newMode = data[0] - '0';
         float value = atof(dataCasted + 1); // Removes most significant digit, which was the mode indicator
-        if(mode != newMode) { // Swap modes is necessairy
-            // TODO: Add code to swap mode in OdrvieMbed
-            // Send command to change mode here
-        } 
         switch(newMode) {
             case 0: // set Constant Velocity
                 if(mode != newMode) {
@@ -59,6 +56,7 @@ void CanHandler::handleThrottle(unsigned char* data) {
                     mode = newMode;
                 }
                 odrive.setVelocity(0, value);
+                cout << "Setting velocity: " << value << endl;
                 break;
             case 1: // set Constant Power
                 if(mode != newMode) {
@@ -66,6 +64,7 @@ void CanHandler::handleThrottle(unsigned char* data) {
                     mode = newMode;
                 }
                 odrive.setCurrent(0, value);
+                cout << "Setting current: " << value << endl;
                 break;
         }
     }

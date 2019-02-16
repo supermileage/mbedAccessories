@@ -29,11 +29,11 @@ int main() {
         while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) {} //Regulate speed of the main loop to runLoopSpeed
 		prevLoopStartTime = loopTimer.read_ms();
 
-        // throttle.poll();
+        throttle.poll();
         // indicatorR.poll();
         // Add every active can button here and call poll()
 
-        canHandler.poll(); // Check for can message
+        // canHandler.poll(); // Check and handle any can messages
     }
 }
 
