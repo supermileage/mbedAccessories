@@ -1,4 +1,4 @@
-#include "mbed.h"
+#include "../mbed.h"
 #include "CanItem.h"
 
 #ifndef CANBUTTON_H
