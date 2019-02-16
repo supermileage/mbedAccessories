@@ -17,7 +17,6 @@ CanThrottle::CanThrottle(PinName throttlePin, unsigned canID_, DigitalIn *rangeP
     modePins(modePins_) 
     {}
 
-// TODO: have recieving end parse this data appropriatly, make a doc for this type of information
 // Throttle data: first num -> mode, following are the data
 // constantVolocity: mode = 0
 // constantPower: mode = 1
@@ -54,8 +53,9 @@ void CanThrottle::poll() {
     }
 
 
-    char data[8]; 
-    sprintf(data, "%c%.2f", mode, dataAsFloat);
+    char data[10]; 
+    sprintf(data, "%c%.3f", mode, dataAsFloat);
+    cout << "Data converted: " << data << endl;
     sendMessage(data);
 }
 
