@@ -31,10 +31,11 @@ int main() {
 		prevLoopStartTime = loopTimer.read_ms();
 
         // throttle.poll();
-        // indicatorR.poll();
-        // Add every active can button here and call poll()
 
-        // canHandler.poll(); // Check and handle any can messages
+        // Add every active can button here and call poll()
+        // indicatorR.poll();
+
+        canHandler.poll(); // Check and handle any can messages
     }
 }
 

@@ -6,18 +6,15 @@
 #include "../mbed.h"
 #include "ODriveMbed.h"
 
-static const int constantVelocityMode = 2;
-static const int constantPowerMode = 3;
-
 ODriveMbed::ODriveMbed(Serial* serial_) 
     : serial(serial_) {}
 
 void ODriveMbed::setConstantVelocityMode(int motorNum) {
-    serial->printf("w axis%d.controller.config.control_mode %d \n", motorNum, constantVelocityMode);
+    serial->printf("w axis%d.controller.config.control_mode CTRL_MODE_VELOCITY_CONTROL \n", motorNum);
 }
 
 void ODriveMbed::setConstantPowerMode(int motorNum) {
-    serial->printf("w axis%d.controller.config.control_mode %d \n", motorNum, constantPowerMode);
+    serial->printf("w axis%d.controller.config.control_mode CTRL_MODE_CURRENT_CONTROL \n", motorNum);
 }
 
 void ODriveMbed::setPosition(int motorNum, float position, float velocity_feedforward, float current_feedforward) {
