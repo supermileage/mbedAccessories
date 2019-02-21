@@ -22,6 +22,7 @@ class ODriveMbed {
         void setCurrent(int motorNum, float current);
         float readBusVoltage();
         float readSetVelocity(int motorNum);
+        float readSetCurrent(int motorNum);
     private:
         float readFloat();
         int32_t readInt();

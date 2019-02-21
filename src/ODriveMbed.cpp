@@ -39,6 +39,11 @@ float ODriveMbed::readSetVelocity(int motorNum) {
     return readFloat(); 
 }
 
+float ODriveMbed::readSetCurrent(int motorNum) {
+    serial->printf("r axis%d.controller.current_setpoint \n", motorNum);
+    return readFloat(); 
+}
+
 
 // Helpers
 

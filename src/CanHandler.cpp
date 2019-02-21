@@ -65,6 +65,9 @@ void CanHandler::handleThrottle(unsigned char* data) {
                 odrive.setCurrent(0, value);
                 cout << "Setting current: " << value << endl;
                 break;
+            case 9: // stop motor
+                odrive.setCurrent(0, 0);
+                odrive.setVelocity(0, 0);
         }
     }
 }
