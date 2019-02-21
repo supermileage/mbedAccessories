@@ -1,8 +1,13 @@
 #include "CanThrottle.h"
 #include <iostream> // TODO: remove
 
+// Throttle data: first num -> mode, following are the data
+// constantVolocity: mode = 0
+// constantPower: mode = 1
+// stop motor: data = 9
+
 // TODO: Calibrate these
-const float maxVelocity = 4000.0; // This can actually up to ~8000
+const float maxVelocity = 4000.0; // This can actually up to ~8000 (or more?)
 const float maxCurrent = 10.0; // [A], this can go up to 75 actually (perhaps 150)
 const float lowScaleFactor = 0.3;
 const float midScaleFactor = 0.6;
@@ -16,11 +21,6 @@ CanThrottle::CanThrottle(PinName throttlePin, unsigned canID_, DigitalIn *rangeP
     rangePins(rangePins_),
     modePins(modePins_) 
     {}
-
-// Throttle data: first num -> mode, following are the data
-// constantVolocity: mode = 0
-// constantPower: mode = 1
-// stop motor: data = 0000
 
 void CanThrottle::poll() { 
     updateConfiguration();
@@ -75,5 +75,5 @@ void CanThrottle::updateConfiguration() {
 }
 
 void CanThrottle::stopMotor() {
-    sendMessage("0000");
+    sendMessage("9");
 }

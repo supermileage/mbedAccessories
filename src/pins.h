@@ -6,10 +6,8 @@
 #ifndef PINS_H
 #define PINS_H
 
-// TODO: Define Actual can id's (figure out presedence)
-
-// extern CAN can(p30, p29);
-extern CAN can(p9, p10); // Use for testing
+// extern CAN can(p30, p29); // Actual pins
+extern CAN can(p9, p10); // Use for testing (current wiring)
 extern Serial pc(USBTX, USBRX); // To print to computer terminal, for testing
 
 // Dials for throttle controls
@@ -39,7 +37,7 @@ CanButton horn(p24, hornID);
 DigitalOut pcbPower(p7);
 DigitalIn dms(p21);
 
-Serial serial(p28,p27); // For communication between controller over UART
+Serial serial(p28,p27); // For communication with motor controller over UART (TX, RX)
 
 #endif
 

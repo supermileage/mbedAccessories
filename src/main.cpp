@@ -10,11 +10,11 @@
 #include "CanHandler.h"
 #include <iostream>
 
-CanHandler canHandler(&serial); // Can message handler, contains odrive communication
+ODriveMbed odrive(&serial);
+CanHandler canHandler(odrive); // Can message handler, contains odrive communication
 Timer loopTimer;
 // int runLoopSpeed = 10; //ms
 int runLoopSpeed = 1000; //ms //TODO: remove, this is temp
-DigitalOut led1(LED1);
 
 void setup() {
     serial.baud(115200); // Setting baud rate for odrive UART
@@ -29,9 +29,10 @@ int main() {
         while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) {} //Regulate speed of the main loop to runLoopSpeed
 		prevLoopStartTime = loopTimer.read_ms();
 
-        throttle.poll();
-        // indicatorR.poll();
+        // throttle.poll();
+
         // Add every active can button here and call poll()
+        // indicatorR.poll();
 
         canHandler.poll(); // Check and handle any can messages
     }

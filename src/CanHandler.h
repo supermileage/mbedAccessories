@@ -5,7 +5,7 @@
 
 class CanHandler {
     public:
-        CanHandler(Serial* serial);
+        CanHandler(ODriveMbed &odrive_);
         void poll();
     private:
         int mode;
