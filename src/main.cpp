@@ -10,7 +10,8 @@
 #include "CanHandler.h"
 #include <iostream>
 
-CanHandler canHandler(&serial); // Can message handler, contains odrive communication
+ODriveMbed odrive(&serial);
+CanHandler canHandler(odrive); // Can message handler, contains odrive communication
 Timer loopTimer;
 // int runLoopSpeed = 10; //ms
 int runLoopSpeed = 1000; //ms //TODO: remove, this is temp
@@ -29,11 +30,11 @@ int main() {
         while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) {} //Regulate speed of the main loop to runLoopSpeed
 		prevLoopStartTime = loopTimer.read_ms();
 
-        throttle.poll();
+        // throttle.poll();
         // indicatorR.poll();
         // Add every active can button here and call poll()
 
-        canHandler.poll(); // Check and handle any can messages
+        // canHandler.poll(); // Check and handle any can messages
     }
 }
 

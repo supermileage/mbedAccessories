@@ -12,7 +12,6 @@
 
 class ODriveMbed {
     public:
-        // TODO: add switching control modes 
         ODriveMbed(Serial* serial_);
 
         // Commands
@@ -23,9 +22,7 @@ class ODriveMbed {
         void setCurrent(int motorNum, float current);
         float readBusVoltage();
         float readSetVelocity(int motorNum);
-
     private:
-        // General params
         float readFloat();
         int32_t readInt();
         Serial* serial;

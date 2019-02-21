@@ -39,7 +39,7 @@ CanButton horn(p24, hornID);
 DigitalOut pcbPower(p7);
 DigitalIn dms(p21);
 
-Serial serial(p28,p27); // For communication between controller over UART
+Serial serial(p28,p27); // For communication between controller over UART (TX, RX)
 
 #endif
 

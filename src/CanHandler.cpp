@@ -2,12 +2,12 @@
 #include "CanHandler.h"
 #include "CanIDs.h"
 
-//TEMP
+// TODO: TEMP
 #include <iostream>
 
 extern CAN can; // Importing can object
 
-CanHandler::CanHandler(Serial* serial) : odrive(serial) {
+CanHandler::CanHandler(ODriveMbed &odrive_) : odrive(odrive_) {
     mode = 0;
 }
 
