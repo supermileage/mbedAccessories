@@ -4,7 +4,7 @@ Insure you have all the tools installed listed below
 
 Recussivly clone the repo to get submodules
 ```sh
-$ git clone --recurse-submodules https://github.com/supermileage/mbedSteering.git
+$ git clone --recurse-submodules https://github.com/supermileage/mbedAccessories.git
 ```
 
 Navigate into the repo and run the following command to install the mbed libraries
