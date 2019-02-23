@@ -1,6 +1,6 @@
 #include "../mbed.h"
 #include "CanHandler.h"
-#include "CanIDs.h"
+#include "../mbedCanLib/src/canIDs.h"
 
 // TODO: TEMP
 #include <iostream>
