@@ -5,6 +5,7 @@
 
 #include "../mbed.h"
 #include "ODriveMbed.h"
+#include <iostream>
 
 ODriveMbed::ODriveMbed(Serial* serial_) 
     : serial(serial_) {}
@@ -15,6 +16,7 @@ void ODriveMbed::activateMotor(int motorNum) {
 
 void ODriveMbed::deactivateMotor(int motorNum) {
     setMotorState(motorNum, 1); // 1 is AXIS_STATE_IDLE
+    stopMotor(motorNum);
 }
 
 void ODriveMbed::setConstantVelocityMode(int motorNum) {
@@ -53,7 +55,13 @@ float ODriveMbed::readSetCurrent(int motorNum) {
 }
 
 void ODriveMbed::setMotorState(int motorNum, int stateNum) {
+    cout << "Req state" << stateNum << endl;
     serial->printf("w axis%d.requested_state %d \n", motorNum, stateNum);
+}
+
+void ODriveMbed::stopMotor(int motorNum) {
+    setVelocity(motorNum, 0);
+    setCurrent(motorNum, 0);
 }
 
 

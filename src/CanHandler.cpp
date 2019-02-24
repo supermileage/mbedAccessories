@@ -45,6 +45,7 @@ void CanHandler::poll() {
 
 void CanHandler::handleThrottle(unsigned char* data) {
     const char* dataCasted = reinterpret_cast<const char*>(data);
+    cout << dataCasted << endl;
     if(strlen(dataCasted) >= 1) {
         int newMode = data[0] - '0';
         float value = atof(dataCasted + 1); // Removes most significant digit, which was the mode indicator
@@ -66,10 +67,13 @@ void CanHandler::handleThrottle(unsigned char* data) {
                 cout << "Setting current: " << value << endl;
                 break;
             case 8: // Activate motor
-                
+                cout << "Activate" << endl;
+                odrive.activateMotor(0);
+                break;
             case 9: // stop motor
-                odrive.setCurrent(0, 0);
-                odrive.setVelocity(0, 0);
+                cout << "Dectivate" << endl;
+                odrive.deactivateMotor(0);
+                break;
         }
     }
 }

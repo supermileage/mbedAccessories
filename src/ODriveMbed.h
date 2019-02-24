@@ -26,6 +26,7 @@ class ODriveMbed {
         float readSetVelocity(int motorNum);
         float readSetCurrent(int motorNum);
     private:
+        void stopMotor(int motorNum);
         void setMotorState(int motorNum, int stateNum);
         float readFloat();
         int32_t readInt();
