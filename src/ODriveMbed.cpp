@@ -9,6 +9,14 @@
 ODriveMbed::ODriveMbed(Serial* serial_) 
     : serial(serial_) {}
 
+void ODriveMbed::activateMotor(int motorNum) {
+    setMotorState(motorNum, 8); // 8 is AXIS_STATE_CLOSED_LOOP_CONTROL
+}
+
+void ODriveMbed::deactivateMotor(int motorNum) {
+    setMotorState(motorNum, 1); // 1 is AXIS_STATE_IDLE
+}
+
 void ODriveMbed::setConstantVelocityMode(int motorNum) {
     serial->printf("w axis%d.controller.config.control_mode CTRL_MODE_VELOCITY_CONTROL \n", motorNum);
 }
@@ -42,6 +50,10 @@ float ODriveMbed::readSetVelocity(int motorNum) {
 float ODriveMbed::readSetCurrent(int motorNum) {
     serial->printf("r axis%d.controller.current_setpoint \n", motorNum);
     return readFloat(); 
+}
+
+void ODriveMbed::setMotorState(int motorNum, int stateNum) {
+    serial->printf("w axis%d.requested_state %d \n", motorNum, stateNum);
 }
 
 

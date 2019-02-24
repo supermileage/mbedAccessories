@@ -15,6 +15,8 @@ class ODriveMbed {
         ODriveMbed(Serial* serial_);
 
         // Commands
+        void activateMotor(int motorNum);
+        void deactivateMotor(int motorNum);
         void setConstantVelocityMode(int motorNum);
         void setConstantPowerMode(int motorNum);
         void setPosition(int motorNum, float position, float velocity_feedforward = 0.0f, float current_feedforward = 0.0f);
@@ -24,6 +26,7 @@ class ODriveMbed {
         float readSetVelocity(int motorNum);
         float readSetCurrent(int motorNum);
     private:
+        void setMotorState(int motorNum, int stateNum);
         float readFloat();
         int32_t readInt();
         Serial* serial;
