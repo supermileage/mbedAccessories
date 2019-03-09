@@ -14,7 +14,6 @@ ODriveMbed odrive(&serial);
 CanHandler canHandler(odrive); // Can message handler, contains odrive communication
 Timer loopTimer;
 int runLoopSpeed = 100; //ms
-// int runLoopSpeed = 1000; //ms //TODO: remove, this is temp
 
 void setup() {
     serial.baud(115200); // Setting baud rate for odrive UART

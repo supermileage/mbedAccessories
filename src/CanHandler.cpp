@@ -2,7 +2,6 @@
 #include "CanHandler.h"
 #include "../mbedCanLib/src/canIDs.h"
 
-// TODO: TEMP
 #include <iostream>
 
 extern CAN can; // Importing can object
@@ -81,27 +80,27 @@ void CanHandler::handleThrottle(unsigned char* data) {
 
 // TODO: Get pin mapping from Luke for these, toggle pins when these get called
 void CanHandler::handleIndicatorL() {
-
+    cout << "L indicator" << endl;
 }
 
 void CanHandler::handleIndicatorR() {
-    
+    cout << "R indicator" << endl;
 }
 
 void CanHandler::handleHeadlights() {
-    
+    cout << "Headlights" << endl;
 }
 
 void CanHandler::handleWiper() {
-    
+    cout << "Wiper" << endl;
 }
 
 void CanHandler::handleHazards() {
-    
+    cout << "Hazards" << endl;
 }
 
 void CanHandler::handleHorn() {
-    
+    cout << "Horn" << endl;
 }
 
 
