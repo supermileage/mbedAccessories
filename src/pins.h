@@ -9,8 +9,7 @@
 extern CAN can(p9, p10, 1000000); // Use for testing (current wiring)
 extern Serial pc(USBTX, USBRX); // To print to computer terminal, for testing
 
-
-Serial serial(p28,p27); // For communication with motor controller over UART (TX, RX) (GPIO2, GPIO1 on odrive)
+PwmOut pwmPin(LED1); // TODO: Set actual pin
 
 #endif
 

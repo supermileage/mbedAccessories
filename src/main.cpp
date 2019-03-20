@@ -5,18 +5,17 @@
 // * For some reason during debugging analog read is not working properly, so dont debug while testing throttle
 
 #include "../mbed.h"
-#include "ODriveMbed.h"
+#include "Motor.h"
 #include "Pins.h"
 #include "CanHandler.h"
 #include <iostream>
 
-ODriveMbed odrive(&serial);
-CanHandler canHandler(odrive); // Can message handler, contains odrive communication
+Motor motor(pwmPin);
+CanHandler canHandler(motor); // Can message handler
 Timer loopTimer;
 int runLoopSpeed = 100; //ms
 
 void setup() {
-    serial.baud(115200); // Setting baud rate for odrive UART
     loopTimer.start();
 }
 

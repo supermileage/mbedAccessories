@@ -6,9 +6,7 @@
 
 extern CAN can; // Importing can object
 
-CanHandler::CanHandler(ODriveMbed &odrive_) : odrive(odrive_) {
-    mode = 0;
-}
+CanHandler::CanHandler(Motor motor_) : motor(motor_) {}
 
 // If this gets to long consider a lookup table with call backs
 // Must break in each case, defualt behavior is fallthrough
@@ -46,32 +44,20 @@ void CanHandler::handleThrottle(unsigned char* data) {
     const char* dataCasted = reinterpret_cast<const char*>(data);
     cout << dataCasted << endl;
     if(strlen(dataCasted) >= 1) {
-        int newMode = data[0] - '0';
-        float value = atof(dataCasted + 1); // Removes most significant digit, which was the mode indicator
-        switch(newMode) {
-            case 0: // set Constant Velocity
-                if(mode != newMode) {
-                    odrive.setConstantVelocityMode(0);
-                    mode = newMode;
-                }
-                odrive.setVelocity(0, value);
-                cout << "Setting velocity: " << value << endl;
-                break;
-            case 1: // set Constant Power
-                if(mode != newMode) {
-                    odrive.setConstantPowerMode(0);
-                    mode = newMode;
-                }
-                odrive.setCurrent(0, value);
-                cout << "Setting current: " << value << endl;
+        int command = data[0] - '0';
+        float value = atof(dataCasted + 1); // Removes most significant digit, which was the command indicator
+        switch(command) {
+            case 7: // Update speed, motor must be active otherwise sets speed to 0
+                motor.setSpeed(value);
+                cout << "Setting speed: " << value << endl;
                 break;
             case 8: // Activate motor
                 cout << "Activate" << endl;
-                odrive.activateMotor(0);
+                motor.activate();
                 break;
             case 9: // stop motor
                 cout << "Dectivate" << endl;
-                odrive.deactivateMotor(0);
+                motor.deactivate();
                 break;
         }
     }
