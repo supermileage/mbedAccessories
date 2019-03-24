@@ -5,11 +5,10 @@
 #ifndef PINS_H
 #define PINS_H
 
-// extern CAN can(p30, p29, 1000000); // Actual pins
-extern CAN can(p9, p10, 1000000); // Use for testing (current wiring)
+extern CAN can(p30, p29, 1000000); // Actual pins
 extern Serial pc(USBTX, USBRX); // To print to computer terminal, for testing
 
-PwmOut pwmPin(p22); // TODO: Set actual pin
+PwmOut pwmPin(p21); // TODO: Set actual pin
 
 #endif
 

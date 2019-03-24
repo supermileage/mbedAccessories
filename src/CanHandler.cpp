@@ -49,14 +49,11 @@ void CanHandler::handleThrottle(unsigned char* data) {
         switch(command) {
             case 7: // Update speed, motor must be active otherwise sets speed to 0
                 motor.setSpeed(value);
-                cout << "Setting speed: " << value << endl;
                 break;
             case 8: // Activate motor
-                cout << "Activate" << endl;
                 motor.activate();
                 break;
             case 9: // stop motor
-                cout << "Dectivate" << endl;
                 motor.deactivate();
                 break;
         }
