@@ -36,6 +36,8 @@ void CanHandler::poll() {
             case hornID:
                 handleHorn();
                 break;
+            default:
+                cout << "Non valid id: " << msg.id << ", data: " << msg.data << endl;
         }
     }
 }
