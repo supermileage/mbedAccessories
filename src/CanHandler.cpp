@@ -42,7 +42,6 @@ void CanHandler::poll() {
 
 void CanHandler::handleThrottle(unsigned char* data) {
     const char* dataCasted = reinterpret_cast<const char*>(data);
-    cout << dataCasted << endl;
     if(strlen(dataCasted) >= 1) {
         int command = data[0] - '0';
         float value = atof(dataCasted + 1); // Removes most significant digit, which was the command indicator

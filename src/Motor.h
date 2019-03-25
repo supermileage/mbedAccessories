@@ -7,7 +7,7 @@
 class Motor {
     public:
         Motor(PwmOut pwm_);
-        void setSpeed(int voltage);
+        void setSpeed(float voltage);
         void activate();
         void deactivate();
     private:

@@ -17,6 +17,7 @@ int runLoopSpeed = 100; //ms
 
 void setup() {
     loopTimer.start();
+    while (loopTimer.read_ms() < 500) {} // Waits half a second on boot up
 }
 
 int main() {
@@ -26,7 +27,6 @@ int main() {
     while(true) {
         while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) {} //Regulate speed of the main loop to runLoopSpeed
 		prevLoopStartTime = loopTimer.read_ms();
-
         canHandler.poll(); // Check and handle any can messages
     }
 }

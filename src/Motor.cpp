@@ -8,7 +8,7 @@ Motor::Motor(PwmOut pwm_) : pwm(pwm_) {
     isActive = false;
 }
 
-void Motor::setSpeed(int duty) {
+void Motor::setSpeed(float duty) {
     if(isActive) {
         cout << "Writing duty: " << duty << endl;
         pwm.write(duty);
