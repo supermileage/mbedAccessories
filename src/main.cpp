@@ -6,10 +6,10 @@
 
 #include "../mbed.h"
 #include "Motor.h"
-#include "Pins.h"
 #include "CanHandler.h"
 #include <iostream>
 
+extern PwmOut pwmPin; // Importing pwm object
 Motor motor(pwmPin);
 CanHandler canHandler(motor); // Can message handler
 Timer loopTimer;

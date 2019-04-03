@@ -3,6 +3,7 @@
 #include "../mbedCanLib/src/canIDs.h"
 
 #include <iostream>
+#include <pins.h>
 
 extern CAN can; // Importing can object
 
@@ -14,27 +15,31 @@ void CanHandler::poll() {
     CANMessage msg;
     if(can.read(msg)) {
         unsigned char* data = msg.data;
+        int command = data[0] - '0';
         switch(msg.id) {
             case throttleID:
                 handleThrottle(data);
                 break;
             case indicatorRID:
-                handleIndicatorR();
+                handleIndicatorR(command);
                 break;
             case indicatorLID:
-                handleIndicatorL();
+                handleIndicatorL(command);
                 break;
             case headlightsID:
-                handleHeadlights();
+                handleHeadlights(command);
                 break;
             case wiperID:
-                handleWiper();
+                handleWiper(command);
                 break;
             case hazardsID:
-                handleHazards();
+                handleHazards(command);
                 break;
             case hornID:
-                handleHorn();
+                handleHorn(command);
+                break;
+            case brakeID:
+                handleBrakeLights(command);
                 break;
             default:
                 cout << "Non valid id: " << msg.id << ", data: " << msg.data << endl;
@@ -63,28 +68,44 @@ void CanHandler::handleThrottle(unsigned char* data) {
   
 
 // TODO: Get pin mapping from Luke for these, toggle pins when these get called
-void CanHandler::handleIndicatorL() {
-    cout << "L indicator" << endl;
+void CanHandler::handleIndicatorL(int command) {
+    cout << "L indicator: " << command << endl;
+    command ? indicatorL.write(1) : indicatorL.write(0);
 }
 
-void CanHandler::handleIndicatorR() {
-    cout << "R indicator" << endl;
+void CanHandler::handleIndicatorR(int command) {
+    cout << "R indicator: " << command << endl;
+    command ? indicatorR.write(1) : indicatorR.write(0);
 }
 
-void CanHandler::handleHeadlights() {
-    cout << "Headlights" << endl;
+void CanHandler::handleHeadlights(int command) {
+    cout << "headlights: " << command << endl;
+    command ? headlights.write(1) : headlights.write(0);
 }
 
-void CanHandler::handleWiper() {
-    cout << "Wiper" << endl;
+void CanHandler::handleWiper(int command) {
+    cout << "Wiper: " << command << endl;
+    command ? wiper.write(1) : wiper.write(0);
 }
 
-void CanHandler::handleHazards() {
-    cout << "Hazards" << endl;
+void CanHandler::handleHazards(int command) {
+    if(command == 1) {
+        indicatorR.write(1);
+        indicatorL.write(1);
+    } else {
+        indicatorR.write(0);
+        indicatorL.write(0);
+    }
 }
 
-void CanHandler::handleHorn() {
-    cout << "Horn" << endl;
+void CanHandler::handleHorn(int command) {
+    cout << "Horn: " << command << endl;
+    command ? horn.write(1) : horn.write(0);
+}
+
+void CanHandler::handleBrakeLights(int command) {
+    cout << "Brake Lights: " << command << endl;
+    command ? brakeLights.write(1) : brakeLights.write(0);
 }
 
 

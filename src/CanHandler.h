@@ -10,12 +10,13 @@ class CanHandler {
     private:
         Motor motor;
         void handleThrottle(unsigned char* data);
-        void handleIndicatorL();
-        void handleIndicatorR();
-        void handleHeadlights();
-        void handleWiper();
-        void handleHazards();
-        void handleHorn();
+        void handleIndicatorL(int command);
+        void handleIndicatorR(int command);
+        void handleHeadlights(int command);
+        void handleWiper(int command);
+        void handleHazards(int command);
+        void handleHorn(int command);
+        void handleBrakeLights(int command);
 };
 
 #endif 

@@ -7,9 +7,16 @@
 
 extern CAN can(p30, p29, 500000); // Actual pins
 extern Serial pc(USBTX, USBRX); // To print to computer terminal, for testing
+extern PwmOut pwmPin(p21); 
 
-PwmOut pwmPin(p21); // TODO: Set actual pin
+DigitalOut brakeLights(p13, 0); // Specifies pin and inital value
+DigitalOut indicatorL(p15, 0); 
+DigitalOut indicatorR(p14, 0);
+DigitalOut headlights(p16, 0);
+DigitalOut wiper(p17, 0);
+DigitalOut horn(p18, 0);
 
+//TODO: Add brake light and running lights to code
 #endif
 
 
