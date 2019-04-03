@@ -66,8 +66,6 @@ void CanHandler::handleThrottle(unsigned char* data) {
     }
 }
   
-
-// TODO: Get pin mapping from Luke for these, toggle pins when these get called
 void CanHandler::handleIndicatorL(int command) {
     cout << "L indicator: " << command << endl;
     command ? indicatorL.write(1) : indicatorL.write(0);
@@ -89,6 +87,7 @@ void CanHandler::handleWiper(int command) {
 }
 
 void CanHandler::handleHazards(int command) {
+    cout << "Hazards: " << command << endl;
     if(command == 1) {
         indicatorR.write(1);
         indicatorL.write(1);
