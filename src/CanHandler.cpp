@@ -42,7 +42,8 @@ void CanHandler::poll() {
                 handleBrakeLights(command);
                 break;
             default:
-                cout << "Non valid id: " << msg.id << ", data: " << msg.data << endl;
+                //cout << "Non valid id: " << msg.id << ", data: " << msg.data << endl;
+                break;
         }
     }
 }
@@ -67,27 +68,27 @@ void CanHandler::handleThrottle(unsigned char* data) {
 }
   
 void CanHandler::handleIndicatorL(int command) {
-    cout << "L indicator: " << command << endl;
+    // cout << "L indicator: " << command << endl;
     command ? indicatorL.write(1) : indicatorL.write(0);
 }
 
 void CanHandler::handleIndicatorR(int command) {
-    cout << "R indicator: " << command << endl;
+    // cout << "R indicator: " << command << endl;
     command ? indicatorR.write(1) : indicatorR.write(0);
 }
 
 void CanHandler::handleHeadlights(int command) {
-    cout << "headlights: " << command << endl;
+    // cout << "headlights: " << command << endl;
     command ? headlights.write(1) : headlights.write(0);
 }
 
 void CanHandler::handleWiper(int command) {
-    cout << "Wiper: " << command << endl;
+    // cout << "Wiper: " << command << endl;
     command ? wiper.write(1) : wiper.write(0);
 }
 
 void CanHandler::handleHazards(int command) {
-    cout << "Hazards: " << command << endl;
+    // cout << "Hazards: " << command << endl;
     if(command == 1) {
         indicatorR.write(1);
         indicatorL.write(1);
@@ -98,12 +99,12 @@ void CanHandler::handleHazards(int command) {
 }
 
 void CanHandler::handleHorn(int command) {
-    cout << "Horn: " << command << endl;
+    // cout << "Horn: " << command << endl;
     command ? horn.write(1) : horn.write(0);
 }
 
 void CanHandler::handleBrakeLights(int command) {
-    cout << "Brake Lights: " << command << endl;
+    // cout << "Brake Lights: " << command << endl;
     command ? brakeLights.write(1) : brakeLights.write(0);
 }
 
