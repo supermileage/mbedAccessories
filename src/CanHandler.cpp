@@ -14,6 +14,7 @@ CanHandler::CanHandler(Motor motor_) : motor(motor_) {}
 void CanHandler::poll() {
     CANMessage msg;
     if(can.read(msg)) {
+        // cout << "MESSAGE" << endl;
         unsigned char* data = msg.data;
         int command = data[0] - '0';
         switch(msg.id) {
@@ -42,7 +43,7 @@ void CanHandler::poll() {
                 handleBrakeLights(command);
                 break;
             default:
-                //cout << "Non valid id: " << msg.id << ", data: " << msg.data << endl;
+                // cout << "Non valid id: " << msg.id << ", data: " << msg.data << endl;
                 break;
         }
     }

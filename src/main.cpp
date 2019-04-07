@@ -27,6 +27,7 @@ int main() {
     while(true) {
         while (loopTimer.read_ms() - prevLoopStartTime < runLoopSpeed) {} //Regulate speed of the main loop to runLoopSpeed
 		prevLoopStartTime = loopTimer.read_ms();
+
         canHandler.poll(); // Check and handle any can messages
     }
 }

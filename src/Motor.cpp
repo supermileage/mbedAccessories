@@ -13,18 +13,18 @@ void Motor::setSpeed(float duty) {
         cout << "Writing duty: " << duty << endl;
         pwm.write(duty);
     } else {
-        cout << "Set speed but not active" << endl;
+        // cout << "Set speed but not active" << endl;
         stop();
     }
 }
 
 void Motor::activate() {
-    cout << "ACTIVE" << endl;
+    // cout << "ACTIVE" << endl;
     isActive = true;
 }
 
 void Motor::deactivate() {
-    cout << "DEACTIVEATED" << endl;
+    // cout << "DEACTIVEATED" << endl;
     stop();
     isActive = false;
 }
